@@ -5,6 +5,7 @@ ENV HOME="/home/$user"
 WORKDIR $HOME
 RUN mkdir -p .local/bin .local/etc .local/lib
 
+
 # Install environment
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -78,8 +79,12 @@ RUN curl -o rustup https://sh.rustup.rs && \
 ENV PATH="$HOME/.cargo/bin:$PATH"
 
 # Download and extract indy-sdk
-RUN mkdir indy-sdk && \
-    curl "${indy_sdk_url}" | tar -xz -C indy-sdk
+# RUN mkdir indy-sdk && \
+#     curl "${indy_sdk_url}" | tar -xz -C indy-sdk
+
+RUN mkdir $HOME/indy-sdk
+ADD indy-sdk $HOME/indy-sdk/indy-sdk
+
 
 # Build and install indy-sdk
 WORKDIR $HOME/indy-sdk
