@@ -1,3 +1,10 @@
+
+
+# Custom local build [ forked ]
+```
+python3 make_image.py 1.16.0 --name rghostin/von-image --no-cache
+```
+
 # Docker images for Verified Organizations Network components
 
 In support of VON a set of Docker images are published for running Hyperledger Indy components. The image repository is located [on Docker Hub](https://hub.docker.com/r/bcgovimages/von-image/).
